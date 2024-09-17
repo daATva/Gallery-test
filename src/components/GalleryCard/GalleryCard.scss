@@ -1,0 +1,328 @@
+@import '../../index.scss';
+
+$primary-black: #121212;
+$primary-white: #ffffff;
+$accent-gold: #ab8956;
+$accent-red: #9b4b4b;
+
+.gallery-card {
+  flex: 1 1 33.333%;
+  max-width: 392px;
+  min-width: 200px;
+  width: 392px;
+  height: 260px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+
+  .gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .gallery-info {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 320px;
+    height: 82px;
+    display: flex;
+    flex-direction: column;
+    background: $primary-black;
+    padding: 0px 0px 0px 20px;
+    text-align: left;
+    line-height: 14.53px;
+    color: $primary-white;
+
+    h2 {
+      @include font-style('Cormorant SC', 500);
+      font-size: 16px;
+      text-transform: uppercase;
+      position: relative;
+      margin: 20px 0px 0px 0px;
+      display: inline-block;
+      width: 99%;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -20px;
+        width: 2px;
+        height: 42px;
+        background: $accent-gold;
+      }
+    }
+
+    p {
+      color: $accent-gold;
+      @include font-style('PT Sans Caption', 700);
+      font-size: 12px;
+    }
+  }
+}
+
+@media (width > 1025px) {
+  .gallery-group {
+    .gallery-card {
+      height: 260px;
+      flex: 1 1 calc(33.33% - 10px);
+    }
+  }
+}
+
+@media (width < 1024px) {
+  .gallery-group {
+    gap: 28px;
+    .gallery-card {
+      flex: 1 1 calc(34% - 10px);
+      width: 352px;
+      height: 220px;
+      @include font-style('Paragraph-Light', 700);
+      transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+      .gallery-info {
+        width: 300px;
+        height: 66px;
+        padding: 0px 0px 0px 12px;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0px;
+          right: -24px;
+          width: 8.3%;
+          height: 66px;
+          background: $accent-gold;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 25px;
+          right: -20px;
+          width: 20px;
+          height: 20px;
+          background: url(../../assets/images/arrow.png) no-repeat 3px 3px;
+          background-size: auto 10px;
+        }
+        h2 {
+          margin: 12px 0px 0px 0px;
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (width < 768px) {
+  .gallery-group {
+    gap: 24px;
+    .gallery-card {
+      flex: 1 1 auto;
+
+      .gallery-info {
+        width: 300px;
+        height: 66px;
+        padding: 0px 0px 0px 12px;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0px;
+          right: -24px;
+          width: 8.3%;
+          height: 66px;
+          background: $accent-gold;
+        }
+        h2 {
+          margin: 8px 0px 0px 0px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-container {
+    width: 320px;
+  }
+  .gallery-group {
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    width: 280px;
+
+    .gallery-card {
+      flex: 1 1 calc(100% - 10px);
+      width: 280px;
+      height: 185px;
+      line-height: 14.53px;
+      .gallery-info {
+        width: 236px;
+        height: 45px;
+        font-size: 12px;
+        padding: 0px 0px 0px 12px;
+        &::before {
+          content: '';
+          position: absolute;
+          top: -0.5px;
+          right: -20px;
+          width: 24px;
+          height: 45px;
+          background: $accent-gold;
+        }
+        &::after {
+          bottom: 15px;
+          right: -15px;
+        }
+        h2 {
+          font-size: 12px;
+          width: 98%;
+        }
+        p {
+          margin: 4px 0px 0px 0px;
+          font-size: 8px;
+          line-height: 9.68px;
+        }
+      }
+    }
+  }
+}
+
+.gallery-card .gallery-info {
+  transition: ease-in-out 0.3s;
+  display: block;
+  &:hover {
+    transition: ease-in-out 0.3s;
+    background: $primary-white;
+  }
+}
+
+.gallery-card {
+  &:hover {
+    transition: ease-in-out 0.3s;
+    background: $primary-white;
+    .gallery-info {
+      background: $primary-white;
+      h2 {
+        color: $primary-black;
+        &::before {
+          background-color: $accent-red;
+        }
+      }
+
+      p {
+        color: $accent-red;
+      }
+
+      &::before {
+        background-color: $accent-red;
+      }
+    }
+  }
+}
+
+.gallery-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.gallery-card {
+  background-color: var(--card-bg-light);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+
+  &.light {
+    background-color: $primary-white;
+  }
+
+  .gallery-image {
+    width: 100%;
+  }
+}
+
+.gallery-container {
+  background: $primary-black;
+  color: $primary-white;
+
+  &.light {
+    background-color: $primary-white;
+  }
+}
+
+.placeholder {
+  background-color: none;
+  opacity: 0%;
+}
+
+.gallery-card {
+  &.light {
+    background-color: $primary-white;
+    color: $primary-black;
+    .gallery-info {
+      color: $primary-white;
+      h2 {
+        color: $primary-black;
+        &::before {
+          background-color: $accent-red;
+        }
+      }
+
+      p {
+        color: $accent-red;
+      }
+
+      &::before {
+        background-color: $accent-red;
+      }
+    }
+  }
+  .gallery-info {
+    &.light {
+      background-color: $primary-white;
+      color: $primary-black;
+    }
+  }
+}
+
+.gallery-card.light:hover h2::before {
+  transition: background-color 0.3s;
+  background-color: $accent-gold;
+}
+
+.gallery-card.light:hover .gallery-info::before {
+  transition: ease-in-out 0.3s;
+  background-color: $accent-gold;
+}
+
+.gallery-card.light:hover {
+  .gallery-info {
+    background: $primary-black;
+    p {
+      color: $accent-gold;
+    }
+    h2 {
+      color: $primary-white;
+    }
+  }
+}
+
+.gallery-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gallery-card {
+  flex: 1 1 auto;
+  width: 280px;
+  height: 185px;
+}

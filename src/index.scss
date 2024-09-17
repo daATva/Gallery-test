@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=PT+Sans+Caption:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  $primary-black: #121212;
+  $primary-white: #ffffff;
+  $primary-light-gray: #dedede;
+  $primary-dark-gray: #575757;
+  $secondary-white: #fcfcfc;
+  $secondary-black: #1a1818;
+  $secondary-gray: #9c9c9c;
+  $accent-gold: #ab8956;
+  $accent-red: #9b4b4b;
+  $card-background: #202020;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'FontName';
+  src: url('/fonts/font.ttf');
+}
+
+@font-face {
+  font-family: 'Paragraph-Light';
+  src: url('/testovoe/src/assets/fonts/ParagraphLight.ttf');
+}
+
+@font-face {
+  font-family: 'Paragraph-Medium';
+  src: url('/testovoe/src/assets/fonts/Paragraph-Medium.woff2');
+}
+
+@mixin font-style($font-family, $font-weight, $font-style: normal) {
+  font-family: $font-family, system-ui;
+  font-weight: $font-weight;
+  font-style: $font-style;
+}
+
+.pt-sans-caption-regular {
+  @include font-style('PT Sans Caption', 400);
+}
+
+.pt-sans-caption-bold {
+  @include font-style('PT Sans Caption', 700);
+}
+
+.cormorant-sc-light {
+  @include font-style('Cormorant SC', 300);
+}
+
+.cormorant-sc-regular {
+  @include font-style('Cormorant SC', 400);
+}
+
+.cormorant-sc-medium {
+  @include font-style('Cormorant SC', 500);
+}
+
+.cormorant-sc-bold {
+  @include font-style('Cormorant SC', 700);
+}
+.gallery-card {
+  @include font-style('Paragraph-Light', 700);
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 4.1px 6px;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}

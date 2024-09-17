@@ -1,0 +1,108 @@
+@import '../../index.scss';
+
+$primary-black: #121212;
+$primary-white: #ffffff;
+$secondary-black: #1a1818;
+$primary-light-gray: #dedede;
+$primary-dark-gray: #575757;
+$secondary-gray: #9c9c9c;
+
+.search {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 14px 0 0 0;
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+.search-input {
+  position: relative;
+  display: block;
+  &::before {
+    margin: 7px 0 0 16px;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: url('/src/assets/images/loop.png') no-repeat 0 0;
+    background-size: auto 20px;
+    z-index: 5;
+  }
+
+  &.light::before {
+    margin: 8px 0 0 16px;
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: url('/src/assets/images/lasp.png') no-repeat 0 0;
+    background-size: auto 17px;
+  }
+}
+
+.search-settings {
+  margin-left: 20px;
+  padding: 6px 10px;
+  background: $secondary-black;
+
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  &.light {
+    background-color: $primary-white;
+  }
+
+  img {
+    width: 16px;
+  }
+}
+
+.search-bar {
+  border: none;
+  padding: 10px 10px 10px 48px;
+  color: $primary-white;
+  border-radius: 5px;
+  width: 296px;
+  max-width: 100%;
+  flex: 0 1 278px;
+  position: relative;
+  background: $secondary-black;
+
+  &.light {
+    background-color: $primary-white;
+    border: 1px solid $primary-light-gray;
+    color: $primary-dark-gray;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background-color: $primary-white;
+    z-index: 5;
+  }
+
+  &:focus {
+    border-color: #bdbdbd;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+  }
+
+  input {
+    background-color: $primary-light-gray;
+    padding-left: 20px;
+  }
+
+  &::placeholder {
+    margin-left: 20px;
+    color: $secondary-gray;
+  }
+}
