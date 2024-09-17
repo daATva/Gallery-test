@@ -1,8 +1,11 @@
 @import '../../index.scss';
+
 $primary-black: #121212;
 $primary-white: #ffffff;
 $primary-dark-gray: #575757;
 $secondary-black: #1a1818;
+$primary-light-gray: #dedede;
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -10,11 +13,11 @@ $secondary-black: #1a1818;
   margin: 40px 0;
   &.light {
     .page-number {
-      color: #333;
+      color: $primary-dark-gray;
     }
 
     .active {
-      background: $primary-black;
+      background: $primary-light-gray;
       color: $primary-dark-gray;
       border-color: $primary-white;
     }

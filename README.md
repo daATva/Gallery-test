@@ -48,7 +48,7 @@ git clone https://github.com/daATva/Gallery-test.git
 2. Перейдите в директорию проекта:
 
 ```bash
-cd react_project
+cd Gallery-test
 ```
 
 3. Установите зависимости:
