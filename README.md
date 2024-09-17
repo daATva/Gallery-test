@@ -1,5 +1,13 @@
 # Художественная галерея - React + Vite 🎨
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](https://reactjs.org/)
+[![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)](https://redux.js.org/)
+[![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)](https://sass-lang.com/)
+[![Vite](https://img.shields.io/badge/vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
+[![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)](https://eslint.org/)
+[![Prettier](https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=black)](https://prettier.io/)
+
 Этот проект является тестовым заданием для стажера front-end разработчика в компании **Framework Team**. Это главная страница галереи, созданная с использованием следующего стека технологий:
 
 - **React 18**
@@ -31,19 +39,30 @@
 
 ## Как запустить проект 🚀
 
-- **1. Клонируйте репозиторий**
-  bash
-  Копировать код
-  git clone https://github.com/daATva/Gallery-test.git
-  cd testovoe
+## Установка
 
-- **2. Установите зависимости**
-  bash
-  Копировать код
-  npm install
+1. Клонируйте этот репозиторий:
 
-- **3. Запустите проект в режиме разработки**
-  bash
-  Копировать код
-  npm run dev
-  Приложение будет доступно по адресу http://localhost:5173.
+```bash
+git clone https://github.com/daATva/Gallery-test.git
+```
+
+2. Перейдите в директорию проекта:
+
+```bash
+cd react_project
+```
+
+3. Установите зависимости:
+
+```bash
+npm install
+```
+
+4. Запустите приложение в режиме разработки:
+
+```bash
+npm run dev
+```
+
+Приложение будет доступно по адресу [http://localhost:5173](http://localhost:5173) в вашем браузере.
