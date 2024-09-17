@@ -1,4 +1,4 @@
-# Художественная галерея - React + Vite 🎨
+# Художественная галерея
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](https://reactjs.org/)
