@@ -7,15 +7,26 @@ import Pagination from '../Pagination/Pagination';
 import SearchBar from '../SearchBar/SearchBar';
 import useGalleryData from '../../components/Hooks/useGalleryData';
 
+interface Artist {
+  id: number;
+  name: string;
+}
+
+interface Location {
+  id: number;
+  location: string;
+}
+
 export interface Filters {
   fromYear: string;
   toYear: string;
-  artist: string;
-  location: string;
+  artist: number | '';
+  location: number | '';
 }
 
 const Gallery: React.FC = () => {
   const limit = 6;
+
   const [filters, setFilters] = useState<Filters>({
     fromYear: '',
     toYear: '',
@@ -26,7 +37,6 @@ const Gallery: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Используем хук для получения данных
   const {
     paintings,
     loading,
@@ -37,7 +47,7 @@ const Gallery: React.FC = () => {
     totalPages,
     artists,
     locations,
-  } = useGalleryData(limit, filters);
+  } = useGalleryData(limit, filters, searchTerm);
 
   const handleToggleTheme = (isDark: boolean) => {
     setIsDarkMode(isDark);
@@ -48,9 +58,9 @@ const Gallery: React.FC = () => {
   };
 
   const handleSearch = (value: string) => {
-    debounceSearch(value);
     setSearchTerm(value);
-    if (value.trim() === '') {
+    debounceSearch(value);
+    if (!value.trim()) {
       setFilters({ fromYear: '', toYear: '', artist: '', location: '' });
     }
   };
@@ -69,15 +79,17 @@ const Gallery: React.FC = () => {
   return (
     <div className={`gallery-container ${isDarkMode ? 'light' : ''}`}>
       <Header onToggleTheme={handleToggleTheme} />
+
       <Sidebar
         isOpen={isSidebarOpen}
         toggleSidebar={toggleSidebar}
         isDarkMode={isDarkMode}
         onApplyFilters={handleApplyFilters}
         onClearFilters={handleClearFilters}
-        artists={artists} // Данные художников из хука
-        locations={locations} // Данные локаций из хука
+        artists={artists}
+        locations={locations}
       />
+
       <SearchBar
         onSearch={handleSearch}
         onToggleSidebar={toggleSidebar}
@@ -86,22 +98,38 @@ const Gallery: React.FC = () => {
       />
 
       {loading ? (
-        <div className="search-load">Loading...</div>
+        <div className="search-load">Загрузка...</div>
       ) : error ? (
-        <div className="error-message">Error: {error}</div>
-      ) : paintings.length > 0 ? (
-        <GalleryCard
-          paintings={paintings}
-          artists={artists}
-          locations={locations}
-          isDarkMode={isDarkMode}
-        />
+        <div className="error-message">
+          Ошибка:{' '}
+          {error instanceof Error ? error.message : 'Неизвестная ошибка'}
+        </div>
       ) : (
-        <div className="no-results">
-          <h2>
-            No matches for <span>{searchTerm}</span>.
-          </h2>
-          <p>Please try again with a different spelling or keywords.</p>
+        <div className="gallery-content">
+          {paintings.length > 0 ? (
+            <div className="gallery-grid">
+              <GalleryCard
+                paintings={paintings}
+                isDarkMode={isDarkMode}
+                artists={artists.reduce(
+                  (acc: Record<number, Artist>, artist: Artist) => {
+                    acc[artist.id] = artist;
+                    return acc;
+                  },
+                  {} as Record<number, Artist>,
+                )}
+                locations={locations.reduce(
+                  (acc: Record<number, Location>, location: Location) => {
+                    acc[location.id] = location;
+                    return acc;
+                  },
+                  {} as Record<number, Location>,
+                )}
+              />
+            </div>
+          ) : (
+            <div className="no-results">Нет результатов</div>
+          )}
         </div>
       )}
 

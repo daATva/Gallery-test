@@ -247,7 +247,19 @@ $accent-red: #9b4b4b;
     width: 100%;
   }
 }
+.gallery-image {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  &.loaded {
+    opacity: 1;
+  }
+}
 
+.placeholder {
+  background-color: #f0f0f0; /* Light gray placeholder */
+  width: 100%;
+  height: 200px;
+}
 .gallery-container {
   background: $primary-black;
   color: $primary-white;
