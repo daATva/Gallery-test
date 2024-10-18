@@ -8,7 +8,7 @@
 [![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)](https://eslint.org/)
 [![Prettier](https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=black)](https://prettier.io/)
 
-Этот проект является тестовым заданием для стажера front-end разработчика в компании **Framework Team**. Это главная страница галереи, созданная с использованием следующего стека технологий:
+Этот проект является художественной галереей , созданной с использованием следующего стека технологий:
 
 - **React 18**
 - **TypeScript 5**
